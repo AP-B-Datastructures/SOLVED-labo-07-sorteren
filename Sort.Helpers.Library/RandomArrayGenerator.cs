@@ -8,7 +8,31 @@ namespace Sort.Helpers.library
     {
         public static int[] Generate(int amount = 10, int min = 0, int max = 10, bool unique = false)
         {
-            throw new NotImplementedException();
+            if (unique && amount > max - min)
+            {
+                throw new ArgumentException();
+            }
+
+            int[] result = new int[amount];
+
+            Random rnd = new Random();
+
+            for (int i = 0; i < amount; ++i)
+            {
+                int newVal = rnd.Next(min, max);
+
+                if (unique == true && amount <= max - min)
+                {
+                    while (Array.IndexOf(result, newVal) >= 0)
+                    {
+                        newVal = rnd.Next(min, max);
+                    }
+                }
+
+                result[i] = newVal;
+            }
+
+            return result;
         }
 
         public static Car[] GenerateCars(int amount)

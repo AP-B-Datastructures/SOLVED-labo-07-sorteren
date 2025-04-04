@@ -14,10 +14,10 @@ namespace Sort.tests
             int[] expected = { 1, 2, 5, 5, 6, 9 };
 
             // Act
-            int[] result = BubbleSort.Sort(input);
+            BubbleSort.Sort(input);
 
             // Assert
-            CollectionAssert.AreEqual(expected, result);
+            CollectionAssert.AreEqual(expected, input);
         }
 
         [TestMethod]
@@ -27,7 +27,11 @@ namespace Sort.tests
             int[] input = { };
             int[] expected = { };
 
-            throw new NotImplementedException();
+            // Act
+            BubbleSort.Sort(input);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, input);
         }
 
         [TestMethod]
@@ -37,25 +41,67 @@ namespace Sort.tests
             int[] input = { 42 };
             int[] expected = { 42 };
 
-            throw new NotImplementedException();
+            // Act
+            BubbleSort.Sort(input);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, input);
         }
 
         [TestMethod]
         public void BubbleSort_HandlesAlreadySortedArray()
         {
-            throw new NotImplementedException();
+            // Arrange
+            int[] input = { 1, 2, 5, 5, 6, 9 };
+            int[] expected = { 1, 2, 5, 5, 6, 9 };
+
+            // Act
+            BubbleSort.Sort(input);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, input);
         }
 
         [TestMethod]
         public void BubbleSort_HandlesReverseSortedArray()
         {
-            throw new NotImplementedException();
+            // Arrange
+            int[] input = { 9, 6, 5, 5, 2, 1 };
+            int[] expected = { 1, 2, 5, 5, 6, 9 };
+
+            // Act
+            BubbleSort.Sort(input);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, input);
         }
 
         [TestMethod]
         public void BubbleSort_HandlesArrayWithDuplicates()
         {
-            throw new NotImplementedException();
+            // Arrange
+            int[] input = { 1, 5, 5, 5, 6, 5 };
+            int[] expected = { 1, 5, 5, 5, 5, 6 };
+
+            // Act
+            BubbleSort.Sort(input);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, input);
+        }
+        
+        [TestMethod]
+        public void BubbleSort_SortsDoublesArrayInAscendingOrder()
+        {
+            // Arrange
+            double[] input = { 5, 2, 9, 1, 5, 6 };
+            double[] expected = { 1, 2, 5, 5, 6, 9 };
+
+            // Act
+            BubbleSort.Sort(input);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, input);
         }
     }
 }
